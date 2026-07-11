@@ -932,6 +932,11 @@ app.get("/dc" , async (req,res)=>{
             await loadDCVillains();
         }
 
+        console.log("DC Heroes:", dcHeroes.length);
+    console.log("DC Hero Images:", dcHeroesImages.length);
+    console.log("DC Villains:", dcVillains.length);
+    console.log("DC Villain Images:", dcVillainsImages.length);
+
         res.render("dc", {
             heroes: dcHeroes,
             heroImg: dcHeroesImages,
