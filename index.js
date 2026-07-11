@@ -15,7 +15,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.set("views", path.join(__dirname, "views"));
+
 
 dotenv.config();
 
@@ -23,6 +23,7 @@ dotenv.config();
 const app = express();
 
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 
 //Define port number
