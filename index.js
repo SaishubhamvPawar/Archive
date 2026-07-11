@@ -9,13 +9,21 @@ import axios from "axios";
 
 import dotenv from "dotenv";
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.set("views", path.join(__dirname, "views"));
+
 dotenv.config();
 
 //Create Express Application from express object
 const app = express();
 
 app.set("view engine", "ejs");
-app.set("views", "./views");
+
 
 //Define port number
 const port = 3000;
