@@ -14,6 +14,9 @@ dotenv.config();
 //Create Express Application from express object
 const app = express();
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 //Define port number
 const port = 3000;
 
@@ -24,7 +27,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //Handles the "/" GET request
 app.get("/" , (req,res) =>{
-    res.render("index.ejs");
+    res.render("index");
 });
 
 let mDefHeroes = [620,201,470,346,149,659,332,226,106,717,196,213,107,579,30];
@@ -104,7 +107,7 @@ app.get("/marvel", async (req, res) => {
         // no additional API requests are required,
         // resulting in much faster page loading.
         
-        res.render("marvel.ejs", {
+        res.render("marvel", {
             heroes: marvelHeroes , heroImg: marvelHeroesImages , villains: marvelVillains , villainImg: marvelVillainsImages
         });
 
@@ -140,7 +143,7 @@ app.post("/marvel-character" , async (req,res) =>{
         hero.images = imageRes.data.images;
         console.log(hero);
 
-        res.render("marvel-character.ejs", {
+        res.render("marvel-character", {
             hero: hero
         });
 
@@ -777,7 +780,7 @@ app.get("/marvel-heroes" , (req,res) =>{
 
         const totalPages = Math.ceil(totalMarvelHeroes.length / limit);
 
-        res.render("marvel-heroes.ejs" , {heroes:heroes , currentPage :page , totalPages : totalPages});
+        res.render("marvel-heroes" , {heroes:heroes , currentPage :page , totalPages : totalPages});
 
     } catch (error) {
 
@@ -803,7 +806,7 @@ app.get("/marvel-villains" , (req,res) =>{
 
         const totalPages = Math.ceil(totalMarvelVillains.length / limit);
 
-        res.render("marvel-villains.ejs" , {heroes:villains , currentPage :page , totalPages : totalPages});
+        res.render("marvel-villains" , {heroes:villains , currentPage :page , totalPages : totalPages});
 
     } catch (error) {
 
@@ -880,7 +883,7 @@ app.get("/dc" , (req,res)=>{
         // no additional API requests are required,
         // resulting in much faster page loading.
         
-        res.render("dc.ejs", {
+        res.render("dc", {
             heroes: dcHeroes , heroImg: dcHeroesImages , villains: dcVillains , villainImg: dcVillainsImages
         });
 
@@ -909,7 +912,7 @@ app.get("/dc-heroes" , (req,res) =>{
         const totalPages = Math.ceil(totalDCHeroes.length / limit);
         
 
-        res.render("dc-heroes.ejs" , {heroes:heroes , currentPage :page , totalPages : totalPages});
+        res.render("dc-heroes" , {heroes:heroes , currentPage :page , totalPages : totalPages});
 
     } catch (error) {
 
@@ -935,7 +938,7 @@ app.get("/dc-villains" , (req,res) =>{
 
         const totalPages = Math.ceil(totalDCVillains.length / limit);
 
-        res.render("dc-villains.ejs" , {heroes:villains , currentPage :page , totalPages : totalPages});
+        res.render("dc-villains" , {heroes:villains , currentPage :page , totalPages : totalPages});
 
     } catch (error) {
 
@@ -968,7 +971,7 @@ app.post("/dc-character" , async (req,res) =>{
         hero.images = imageRes.data.images;
         console.log(hero);
 
-        res.render("dc-character.ejs", {
+        res.render("dc-character", {
             hero: hero
         });
 
@@ -1018,14 +1021,14 @@ app.post("/search", (req, res) => {
 
         });
 
-    res.render("search.ejs", {
+    res.render("search", {
         query: req.body["search-content"],
         results
     });
 
 });
 //Start server
-if (process.env.VERCEL !== "1") {
+if (!process.env.VERCEL) {
     app.listen(port, () => {
         console.log(`Server running on port ${port}`);
     });
