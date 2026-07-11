@@ -918,7 +918,7 @@ async function loadDCVillains() {
 // Fetch the hero data once when the server starts.
 // loadDCVillains().catch(console.error);
 
-app.get("/dc" , (req,res)=>{
+app.get("/dc" , async (req,res)=>{
      // Log whenever the route is accessed.
     console.log("DC route hit");
 
