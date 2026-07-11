@@ -65,7 +65,7 @@ async function loadMarvelHeroes() {
 
 
 // Fetch the hero data once when the server starts.
-loadMarvelHeroes();
+loadMarvelHeroes().catch(console.error);;
 
 
 let marvelVillains = [];
@@ -92,7 +92,7 @@ async function loadMarvelVillains() {
 
 
 // Fetch the hero data once when the server starts.
-loadMarvelVillains();
+loadMarvelVillains().catch(console.error);;
 
 // Handles requests to the Marvel page.
 app.get("/marvel", async (req, res) => {
@@ -758,7 +758,7 @@ async function fetchAllChars(){
         );
 }
 
-fetchAllChars();
+fetchAllChars().catch(console.error);;
 
 
 
@@ -843,7 +843,7 @@ async function loadDCHeroes() {
 
 
 // Fetch the hero data once when the server starts.
-loadDCHeroes();
+loadDCHeroes().catch(console.error);;
 
 
 let dcVillains = [];
@@ -870,7 +870,7 @@ async function loadDCVillains() {
 
 
 // Fetch the hero data once when the server starts.
-loadDCVillains();
+loadDCVillains().catch(console.error);;
 
 app.get("/dc" , (req,res)=>{
      // Log whenever the route is accessed.
