@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <!-- Swiper Link ExternalCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+<body class="marvel-body">
+
+    <div class="navbar">
+            <div class="navbar-logo">
+                <a href="/">
+                    <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
+                </a>
+            </div>
+
+            <div class="navbar-options">
+
+                <a href="/marvel">
+                    <h2>MARVEL</h2>
+                </a>
+
+                <a href="/dc">
+                    <h2>DC</h2>
+                </a>
+
+                <form action="/search" method="post">
+                    <div class="search marvel-search">
+                        <span class="search-icon marvel-search-icon material-symbols-outlined">search</span>
+                        
+                        <input class="search-input marvel-input" type="search" name="search-content" id="" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+
+    </div>
+
+     <img class="hero-skyline marvel-hero-skyline"src="/images/redCitySkyline.png" alt="Red City Skyline Image" >
+
+     <div class="marvel-heroes">
+
+        <div class="heading-container">
+            <h2 class="marvel-title">MARVEL HEROES</h2>
+
+        </div>
+        
+        <div class="hero-grid">
+
+            <% for(let i = 0; i < heroes.length; i++) { %>
+
+            
+                 <form action="/marvel-character" method="post" class="hero-card">
+                        <input type="hidden" name="id" value="<%= heroes[i].id %>">
+                        <button  type="submit" style="border: none; background: none; padding: 0;">
+                                
+                                    <img src="<%= heroes[i].images.lg %>" alt="Card Image" class="card-image">
+                                    <p class="hero-name"><%= heroes[i].name %></p>
+                                    <p class="hero-real-name"><%= heroes[i]["biography"]["fullName"] %></p>
+                                
+                        </button>
+                    </form>
+            
+
+            <% } %>
+
+            </div>
+
+            <div class="pagination">
+
+                <% if(currentPage > 1){ %>
+                    <a href="/marvel-heroes?page=<%= currentPage-1 %>"
+                    class="pagination-btn">
+                        ← Previous
+                    </a>
+                <% } %>
+
+                <div class="pagination-pages">
+
+                    <% if(totalPages <= 7){ %>
+
+                        <% for(let i=1;i<=totalPages;i++){ %>
+
+                            <a
+                                href="/marvel-heroes?page=<%= i %>"
+                                class="page-number <%= currentPage===i ? 'active' : '' %>">
+
+                                <%= i %>
+
+                            </a>
+
+                        <% } %>
+
+                    <% } else { %>
+
+                        <!-- First Page -->
+                        <a
+                            href="/marvel-heroes?page=1"
+                            class="page-number <%= currentPage===1 ? 'active' : '' %>">
+
+                            1
+
+                        </a>
+
+                        <% if(currentPage > 3){ %>
+
+            <span class="pagination-dots">...</span>
+
+        <% } %>
+
+        <% for(let i=Math.max(2,currentPage-1);
+                i<=Math.min(totalPages-1,currentPage+1);
+                i++){ %>
+
+            <a
+                href="/marvel-heroes?page=<%= i %>"
+                class="page-number <%= currentPage===i ? 'active' : '' %>">
+
+                <%= i %>
+
+            </a>
+
+        <% } %>
+
+        <% if(currentPage < totalPages-2){ %>
+
+            <span class="pagination-dots">...</span>
+
+        <% } %>
+
+        <a
+            href="/marvel-heroes?page=<%= totalPages %>"
+            class="page-number <%= currentPage===totalPages ? 'active' : '' %>">
+
+            <%= totalPages %>
+
+        </a>
+
+    <% } %>
+
+</div>
+
+                <% if(currentPage < totalPages){ %>
+                    <a href="/marvel-heroes?page=<%= currentPage+1 %>"
+                    class="pagination-btn">
+                        Next →
+                    </a>
+                <% } %>
+
+            </div>
+
+
+
+    </div>
+    
+    
+    
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Swiper External JS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>

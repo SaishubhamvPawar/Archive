@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <!-- Swiper Link ExternalCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+<body class="dc-body">
+
+    <div class="navbar">
+            <div class="navbar-logo">
+                <a href="/">
+                    <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
+                </a>
+            </div>
+
+            <div class="navbar-options">
+
+                <a href="/marvel">
+                    <h2>MARVEL</h2>
+                </a>
+
+                <a href="/dc">
+                    <h2>DC</h2>
+                </a>
+
+                <form action="/search" method="post">
+                    <div class="search dc-search">
+                        <span class="search-icon dc-search-icon material-symbols-outlined">search</span>
+                        
+                        <input class="search-input dc-input" type="search" name="search-content" id="" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+
+    </div>
+
+    <img class="hero-skyline dc-hero-skyline"src="/images/dcSkyline.png" alt="DC City Skyline Image" >
+
+    <div class="character-container">
+
+        <!-- IMAGE -->
+        <div class="item item-1">
+
+            <img src="<%= hero.images.lg %>" alt="<%= hero.name %>">
+
+        </div>
+
+        <!-- BIOGRAPHY -->
+
+        <div class="item item-2">
+
+            <h2>Biography</h2>
+
+            <div class="info">
+                <h4>Publisher</h4>
+                <p><%= hero.biography.publisher %></p>
+            </div>
+
+            <div class="info">
+                <h4>Alignment</h4>
+                <p><%= hero.biography.alignment %></p>
+            </div>
+
+            <div class="info">
+                <h4>Birth Place</h4>
+                <p><%= hero.biography.placeOfBirth %></p>
+            </div>
+
+            <div class="info">
+                <h4>First Appearance</h4>
+                <p><%= hero.biography.firstAppearance %></p>
+            </div>
+
+            <div class="info">
+                <h4>Alter Egos</h4>
+                <p><%= hero.biography.alterEgos %></p>
+            </div>
+
+            <div class="info">
+                <h4>Aliases</h4>
+                <div class="alias-container">
+
+                    <% hero.biography.aliases.forEach(alias => { %>
+
+                        <span class="alias-chip"><%= alias %></span>
+
+                    <% }) %>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- POWER STATS -->
+
+        <div class="item item-3 power-card">
+
+            <h2>Power Stats</h2>
+
+            <% Object.entries(hero.powerstats).forEach(([key,value])=>{ %>
+
+                <div class="stat">
+
+                    <div class="stat-header">
+
+                        <span><%= key.charAt(0).toUpperCase()+key.slice(1) %></span>
+
+                        <span><%= value %></span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-fill"
+
+                            style="--progress:<%= value %>%">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+
+
+        <!-- NAME -->
+
+        <div class="item item-4">
+
+            <h1><%= hero.name %></h1>
+
+            <h3><%= hero.biography["fullName"] %></h3>
+
+        </div>
+
+
+
+        <!-- APPEARANCE -->
+
+        <div class="item item-5">
+
+            <h2>Appearance</h2>
+
+            <div class="info">
+                <h4>Gender</h4>
+                <p><%= hero.appearance.gender %></p>
+            </div>
+
+            <div class="info">
+                <h4>Race</h4>
+                <p><%= hero.appearance.race %></p>
+            </div>
+
+            <div class="info">
+                <h4>Height</h4>
+                <p><%= hero.appearance.height.join(" / ") %></p>
+            </div>
+
+            <div class="info">
+                <h4>Weight</h4>
+                <p><%= hero.appearance.weight.join(" / ") %></p>
+            </div>
+
+            <div class="info">
+                <h4>Eye Color</h4>
+                <p><%= hero.appearance.eyeColor %></p>
+            </div>
+
+            <div class="info">
+                <h4>Hair Color</h4>
+                <p><%= hero.appearance.hairColor %></p>
+            </div>
+
+        </div>
+
+
+
+        <!-- WORK -->
+
+        <div class="item item-6">
+
+            <h2>Work</h2>
+
+            <div class="info">
+                <h4>Occupation</h4>
+                <p><%= hero.work.occupation %></p>
+            </div>
+
+            <div class="info">
+                <h4>Base</h4>
+                <p><%= hero.work.base %></p>
+            </div>
+
+        </div>
+
+
+
+        <!-- CONNECTIONS -->
+
+        <div class="item item-7">
+
+            <h2>Connections</h2>
+
+            <div class="info">
+                <h4>Group Affiliation</h4>
+                <p><%= hero.connections.groupAffiliation %></p>
+            </div>
+
+            <div class="info">
+                <h4>Relatives</h4>
+                <p><%= hero.connections.relatives %></p>
+            </div>
+
+        </div>
+
+    </div>
+    
+    
+    
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Swiper External JS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>

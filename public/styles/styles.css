@@ -1,0 +1,2219 @@
+:root{
+    /* Background Colors */
+    --midnight-blue: #020c36;      /* Main Background */
+    --deep-royal-blue: #041562;    /* Sections & Navbars*/
+    --dark-sapphire: #0D2C63;             /* Cards & Containers */
+    --black: #000000;      
+
+    /* Accent Colors */
+    --hero-blue: #11468F;          /* Primary Accent / Buttons Links*/
+    --electric-blue: #2A6FD1;      /* Hover & Active States */
+
+    /* Villain / Highlight Colors */
+    --dark-crimson: #B50D0D;       /* Villain Accent */
+    --hero-crimson: #DA1212;       /* Highlights & CTA Buttons */
+    --maroon: #440000;
+
+    /* Text Colors */
+    --soft-white: #E6E6E6;         /* Primary Text */
+    --silver-gray: rgb(191, 199, 213);        /* Secondary Text */
+}
+
+/* HOME PAGE  */
+
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x:hidden;
+    z-index:-100;
+    background-color: var(--midnight-blue);
+    
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.149);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: "Alumni Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+
+}
+
+.navbar-options a{
+    text-decoration: none;
+    color: var(--silver-gray);
+    margin:0;
+    padding:5px 10px;
+    gap:10px
+    
+}
+
+.navbar-options{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    margin:0;
+    padding:0;
+    
+}
+
+h1{
+    color: var(--soft-white);
+    text-align: center;
+    padding: 10px;
+    margin:0;
+    font-size: 30pt;
+    
+}
+
+.hero-section h1{
+    font-family: "Alumni Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style:normal;
+    font-size:80pt;
+
+    margin:0;
+    padding:2.5px 0px;
+}
+
+.hero-section p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:12pt;
+    color: var(--silver-gray);
+
+    margin:0;
+    padding:0;
+}
+
+
+.hero-section:last-child{
+    padding-bottom: 10px;
+}
+
+.hero-text-container{
+    background-color: var(--dark-sapphire);
+    margin:0;
+    padding:10px 15px;
+
+    width: auto;
+    border-radius:50px;
+}
+
+.navbar-logo{
+    padding:0;
+    margin:0;
+    height: auto;
+}
+
+.logo-name{
+    margin:0;
+    padding: 10px 10px;
+    height: 50px;
+    width:auto;
+    display:block;
+}
+
+.hero-section{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    
+}
+
+.hero-skyline{
+    position: absolute;
+    width:100%;
+    height: auto;
+    z-index:-1;
+    opacity: 0.8;
+    filter:blur(3px);
+    
+}
+
+.text-glow {
+    animation: text-glow 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+@keyframes text-glow {
+    0% {
+        text-shadow:
+            0 0 0 rgba(191, 199, 213, 0);
+    }
+
+    100% {
+        text-shadow:
+            0 0 5px rgba(191, 199, 213, 0.6),
+            0 0 10px rgba(191, 199, 213, 0.5),
+            0 0 20px rgba(191, 199, 213, 0.35);
+    }
+}
+
+.horizontal-line{
+    margin:auto;
+    margin-top:15px;
+    margin-bottom: 15px;
+    padding: 0;
+    max-width: 50%;
+    opacity:0.7;
+    filter:blur(1px)
+    
+}
+
+.container-universe{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:stretch;
+    gap:50px;
+    padding:20px 100px;
+}
+
+.container-marvel{
+    background-color:black;
+    flex:1;
+    border:thin solid var(--hero-crimson);
+    overflow:hidden;
+    border-radius:40px;
+    position:relative;
+}
+
+.container-dc{
+    background-color:var(--midnight-blue);
+    flex:1;
+    border:thin solid var(--electric-blue);
+    overflow:hidden;
+    border-radius:40px;
+    position:relative;
+}
+
+
+
+.skyline-img{
+    width:100%;
+    height:300px;
+    padding-top:5px;
+    display:block;
+}
+
+
+
+.card-content{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    text-align:center;
+
+    margin-top:-80px;
+    padding:0 30px 30px;
+
+    position:relative;
+    z-index:2;
+}
+
+
+
+.marvel-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+    margin-top:-70px;
+    margin-bottom: 0;
+}
+
+
+.marvel-logo > img{
+    height:100px;
+    width:auto;
+    display:block;
+}
+
+.dc-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-100px;
+    margin-bottom: 0;
+}
+
+.dc-logo > img{
+    height:135px;
+    width:auto;
+    display:block;
+   
+}
+
+.container-marvel .card-content h2,
+.container-dc .card-content h2{
+    font-family:"Alumni Sans SC", sans-serif;
+    font-optical-sizing:auto;
+    font-weight:400;
+    font-style:normal;
+
+    font-size:clamp(2.5rem, 5vw, 5rem);
+
+    color:var(--soft-white);
+
+    margin:0;
+    padding:0;
+}
+
+
+
+.container-marvel .card-content p,
+.container-dc .card-content p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:400;
+    font-size:14pt;
+
+    color:var(--silver-gray);
+
+    max-width:600px;
+    line-height:1.6;
+}
+
+
+
+.button.marvel-button{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:400;
+    background-color:var(--hero-crimson);
+
+    border:none;
+    color:white;
+
+    padding:14px 30px;
+    text-decoration:none;
+
+    display:inline-block;
+
+    font-size:12pt;
+
+    margin-top:15px;
+
+    cursor:pointer;
+    border-radius:25px;
+
+    transition:0.3s ease;
+}
+
+.button.marvel-button:hover{
+    transform:translateY(-2px);
+    background-color:#f01c1c;
+}
+
+.button.dc-button{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:400;
+    background-color:var(--electric-blue);
+
+    border:none;
+    color:white;
+
+    padding:14px 30px;
+    text-decoration:none;
+
+    display:inline-block;
+
+    font-size:12pt;
+
+    margin-top:15px;
+
+    cursor:pointer;
+    border-radius:25px;
+
+    transition:0.3s ease;
+}
+
+.button.dc-button:hover{
+    transform:translateY(-2px);
+    background-color:#2d7ae6;
+}
+
+.search{
+    width:max-content;
+    display:flex;
+    align-items:center;
+    padding:10px;
+    margin:0 10px;
+    border-radius:28px;
+    background: var(--dark-sapphire);
+}
+
+.search-input{
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:400;
+    color:var(--silver-gray);
+    margin-left:10px;
+    outline:none;
+    border:none;
+    background:transparent;
+    width:200px;
+}
+
+.search-input::placeholder,
+.search-icon{
+    color:#bfc7d573;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0D2C63 inset !important;
+    -webkit-text-fill-color: #bfc7d573 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.container-marvel,
+.container-dc{
+    transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease, background .4s ease;
+}
+
+.container-marvel:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(218,18,18,.35),0 0 45px rgba(218,18,18,.18),0 18px 35px rgba(0,0,0,.45);
+}
+
+.container-dc:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(42,111,209,.35),0 0 45px rgba(42,111,209,.18),0 18px 35px rgba(0,0,0,.45);
+}
+
+.skyline-img{
+    transition:transform .6s ease, filter .6s ease;
+}
+
+
+.marvel-logo img,
+.dc-logo img{
+    transition:transform .4s ease, filter .4s ease;
+}
+
+.container-marvel:hover .marvel-logo img{
+    transform:translateY(-6px) scale(1.05);
+}
+
+.container-dc:hover .dc-logo img{
+    transform:translateY(-6px) scale(1.05);
+}
+
+.button.marvel-button,
+.button.dc-button{
+    transition:transform .35s ease, box-shadow .35s ease, background .35s ease;
+}
+
+.button.marvel-button:hover,
+.button.dc-button:hover{
+    transform:translateY(-4px) scale(1.04);
+}
+
+.navbar-options a{
+    transition:color .3s ease, transform .3s ease, text-shadow .3s ease;
+}
+
+.navbar-options a:hover{
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.search{
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.search:focus-within{
+    transform:scale(1.03);
+}
+
+.hero-section h1{
+    transition:text-shadow .35s ease, transform .35s ease;
+}
+
+.hero-section:hover h1{
+    transform:translateY(-3px);
+}
+
+
+/* MARVEL WEB PAGE */
+
+.marvel-body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x:hidden;
+    z-index:-100;
+    background-color: var(--black);
+    
+}
+
+.search.marvel-search{
+    width:max-content;
+    display:flex;
+    align-items:center;
+    padding:10px;
+    margin:0 10px;
+    border-radius:28px;
+    background: var(--maroon);
+}
+
+.search-input.marvel-input{
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:400;
+    color:var(--silver-gray);
+    margin-left:10px;
+    outline:none;
+    border:none;
+    background:transparent;
+    width:200px;
+}
+
+.search-input.marvel-input::placeholder,
+.search-icon.marvel-search-icon{
+    color:#bfc7d573;
+}
+
+.marvel-search input:-webkit-autofill,
+.marvel-search input:-webkit-autofill:hover,
+.marvel-search input:-webkit-autofill:focus,
+.marvel-search input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #440000 inset !important;
+    -webkit-text-fill-color: #bfc7d573 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.marvel-hero-skyline.hero-skyline{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    z-index:-1;
+    opacity: 0.8;
+    filter:blur(1px);
+    object-position:top center;
+    object-fit:cover;
+    inset:0;
+    
+}
+
+.card-container *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.card-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    margin: 0px 20px;
+    
+}
+
+.card-list{
+    list-style:none;
+}
+
+.card-list .card-item .card-link{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background-color: var(--maroon);
+    border-radius: 3%;
+    text-decoration: none;
+    border: 1.5px solid var(--hero-crimson);
+    
+}
+
+.card-list .card-item .card-link{
+    transition: all .3s ease;
+
+    box-shadow:
+        0 0 8px rgba(255,0,0,.3);
+}
+
+.card-list .card-item .card-link:hover{
+    transform: scale(1.01);
+
+    box-shadow:
+        0 0 10px rgba(255,0,0,.6),
+        0 0 20px rgba(255,0,0,.5),
+        0 0 40px rgba(255,0,0,.4),
+        0 12px 25px rgba(0,0,0,.4);
+}
+
+.card-image{
+    display: block;
+    width:auto;
+    height:auto;
+    max-width: 200px;
+    border-radius:3% 3% 0 0;
+    border-bottom: 1.5px solid var(--hero-crimson);
+}
+
+.hero-name{
+    font-family:"Alumni Sans SC", sans-serif;
+    font-optical-sizing:auto;
+    font-weight:400;
+    font-style:normal;
+    color:var(--soft-white);
+    font-size:22pt;
+}
+
+.hero-real-name{
+    font-size: 10pt;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:400;
+    color:var(--silver-gray);
+    padding-bottom: 5px;
+}
+
+.swiper{
+    width:100%;
+    height:auto;
+    padding:5px 5px 50px;
+}
+
+.swiper-slide{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:auto !important;
+}
+
+.swiper-pagination-bullet{
+    background: var(--dark-crimson);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+    background: var(--hero-crimson);
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    color: #DA1212;
+    transition: .3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    color: #ff4040;
+    text-shadow:
+        0 0 5px #DA1212,
+        0 0 15px #DA1212,
+        0 0 25px #DA1212;
+}
+
+.heading-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    padding:0;
+
+}
+
+.marvel-title{
+    font-family:"Alumni Sans SC", sans-serif;
+    font-optical-sizing:auto;
+    font-weight:400;
+    font-style:normal;
+    color:var(--soft-white);
+    font-size:50pt;
+
+    margin:0 0 0 50px;
+    padding:0;
+    display:block;
+}
+
+.button.view-button.marvel-view{
+    font-family: "Alumni Sans SC", sans-serif;
+    font-weight: 400;
+
+    display: inline-block;
+    padding: 12px 22px;
+    margin-top: 15px;
+    margin-right: 50px;
+
+    font-size: 15pt;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+
+    border-radius: 25px;
+
+    /* Brighter Red Glass */
+    background: rgba(218, 18, 18, 0.32);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1.5px solid rgba(255, 110, 110, 0.55);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.12),
+        0 0 8px rgba(218,18,18,.18);
+
+    transition: all .3s ease;
+}
+
+.button.view-button.marvel-view:hover{
+    transform: translateY(-3px);
+
+    background: rgba(218,18,18,.45);
+
+    border-color: rgba(255,120,120,.8);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.18),
+        0 0 12px rgba(218,18,18,.6),
+        0 0 25px rgba(218,18,18,.45),
+        0 0 45px rgba(218,18,18,.3);
+}
+
+/* MarveL Heroes Page */
+.hero-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    justify-items:center;
+    gap:35px;
+
+    width:90%;
+    margin:60px auto;
+}
+
+@media(max-width:1200px){
+    .hero-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:900px){
+    .hero-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:650px){
+    .hero-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:480px){
+    .hero-grid{
+        grid-template-columns:repeat(1,1fr);
+    }
+}
+
+
+
+.hero-card{
+
+    width:200px;
+
+    background:var(--maroon);
+
+    border:1.5px solid var(--hero-crimson);
+    border-radius:8px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 8px rgba(255,0,0,.3);
+
+    transition:all .3s ease;
+
+}
+
+.hero-card:hover{
+
+    transform:scale(1.02);
+
+    box-shadow:
+        0 0 10px rgba(255,0,0,.6),
+        0 0 20px rgba(255,0,0,.5),
+        0 0 40px rgba(255,0,0,.4),
+        0 12px 25px rgba(0,0,0,.4);
+
+}
+
+
+
+.hero-card button{
+
+    width:100%;
+
+    margin:0;
+    padding:0;
+
+    border:none;
+    outline:none;
+    background:none;
+
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+}
+
+
+.hero-card .card-image{
+
+    display:block;
+
+    width:100%;
+    height:300px;
+
+    object-fit:cover;
+    object-position:center top;
+
+    border-bottom:1.5px solid var(--hero-crimson);
+
+}
+
+
+
+.hero-card .hero-name{
+
+    font-family:"Alumni Sans SC", sans-serif;
+    font-optical-sizing:auto;
+    font-weight:400;
+    font-style:normal;
+
+    font-size:22pt;
+
+    color:var(--soft-white);
+
+    margin:10px 8px 0;
+    padding:0;
+
+    text-align:center;
+    line-height:1.1;
+
+}
+
+
+.hero-card .hero-real-name{
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    font-weight:400;
+
+    color:var(--silver-gray);
+
+    margin:3px 8px 10px;
+    padding:0;
+
+    text-align:center;
+
+    min-height:16px;
+
+}
+
+
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    justify-items:center;
+
+    gap:35px;
+
+    width:90%;
+
+    margin:60px auto;
+
+}
+
+@media(max-width:1200px){
+
+.hero-grid{
+
+grid-template-columns:repeat(4,1fr);
+
+}
+
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+@media(max-width:650px){
+
+.hero-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-grid{
+
+grid-template-columns:repeat(1,1fr);
+
+}
+
+}
+
+.pagination{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+
+    margin:70px 0;
+
+}
+
+
+
+.pagination-pages{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+
+
+.pagination-btn{
+
+    font-family:"Alumni Sans SC", sans-serif;
+    font-size:18pt;
+    font-weight:400;
+
+    text-decoration:none;
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:25px;
+
+    background:rgba(218,18,18,.32);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1.5px solid rgba(255,110,110,.55);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.12),
+        0 0 8px rgba(218,18,18,.18);
+
+    transition:.3s ease;
+
+}
+
+.pagination-btn:hover{
+
+    transform:translateY(-3px);
+    background:rgba(218,18,18,.45);
+    border-color:rgba(255,120,120,.8);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.18),
+        0 0 12px rgba(218,18,18,.6),
+        0 0 25px rgba(218,18,18,.45),
+        0 0 45px rgba(218,18,18,.3);
+
+}
+
+
+
+.page-number{
+
+    width:44px;
+    height:44px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-family:"Alumni Sans SC", sans-serif;
+    font-size:18pt;
+    font-weight:500;
+
+    color:var(--soft-white);
+
+    border:2px solid var(--hero-crimson);
+    border-radius:12px;
+
+    background:black;
+
+    transition:.25s ease;
+
+}
+
+.page-number:hover{
+    background:rgba(218,18,18,.15);
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 10px rgba(218,18,18,.4);
+
+}
+
+
+.page-number.active{
+    background:var(--hero-crimson);
+    color:white;
+    border-color:var(--hero-crimson);
+    box-shadow:
+        0 0 10px rgba(218,18,18,.55),
+        0 0 20px rgba(218,18,18,.35);
+
+}
+
+
+.pagination-dots{
+    color:var(--hero-crimson);
+    font-size:20pt;
+    font-weight:bold;
+    padding:0 4px;
+}
+
+/* Marvel Character Page */
+.character-container{
+
+    width:95%;
+    min-height:calc(100vh - 120px);
+
+    height:auto;
+
+    margin:30px auto;
+
+    display:grid;
+
+    grid-template-columns:1.1fr 3fr 2fr;
+
+    grid-template-rows:
+    auto
+    auto
+    minmax(170px, auto)
+    auto
+    auto;
+
+    grid-template-areas:
+
+        "image bio power"
+        "image bio power"
+        "name work work"
+        "appearance connections connections"
+        "appearance connections connections";
+
+    gap: 10px;
+
+}
+
+.item-1{
+    grid-area:image;
+}
+
+.item-2{
+    grid-area:bio;
+}
+
+.item-3{
+    grid-area:power;
+}
+
+.item-4{
+    grid-area:name;
+}
+
+.item-5{
+    grid-area:appearance;
+}
+
+.item-6{
+    grid-area:work;
+}
+
+.item-7{
+    grid-area:connections;
+}
+
+.item:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(130,14,14,.28);
+
+    border-color:var(--hero-crimson);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.45),
+        0 0 15px rgba(218,18,18,.45),
+        0 0 30px rgba(218,18,18,.25);
+
+}
+
+.item{
+
+    display:flex;
+    flex-direction:column;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    background:rgba(130,14,14,.18);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    border:1.5px solid rgba(218,18,18,.45);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 18px rgba(218,18,18,.10);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.item-1{
+    grid-area:image;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+
+}
+
+.item-1 img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+    object-position:center top;
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+
+}
+
+.item-1:hover img{
+
+    transform:scale(1.05);
+
+    filter:
+        brightness(1.05)
+        drop-shadow(0 0 18px rgba(218,18,18,.45));
+
+}
+
+.item-4 h1{
+
+    margin:0;
+    padding:0;
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:clamp(2.5rem,3vw,3.5rem);
+    font-weight:600;
+    line-height:1;
+    color:var(--soft-white);
+
+}
+
+.item-4{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:8px;
+    overflow:visible;
+
+}
+
+.item-4 h3{
+
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:clamp(0.95rem,1vw,1.2rem);
+    font-weight:400;
+    color:var(--silver-gray);
+    line-height:1.2;
+
+}
+
+.item-4:hover h1{
+
+    text-shadow:
+        0 0 10px rgba(218,18,18,.65),
+        0 0 20px rgba(218,18,18,.35);
+
+}
+
+
+
+.item h2{
+
+    margin:0 0 18px 0;
+    padding-bottom:10px;
+
+    font-family:"Alumni Sans SC", sans-serif;
+    font-size:2.1rem;
+    font-weight:600;
+
+    color:var(--soft-white);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.info{
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+
+.info h4{
+
+    flex:0 0 130px;
+
+    margin:0;
+    padding:0;
+
+    font-family:"Alumni Sans SC", sans-serif;
+    font-size:1.35rem;
+    font-weight:500;
+
+    color:var(--soft-white);
+
+}
+
+
+.info p{
+
+    flex:1;
+
+    margin:0;
+    padding:0;
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:0.98rem;
+    font-weight:400;
+
+    color:var(--silver-gray);
+
+    line-height:1.5;
+
+    word-break:break-word;
+
+}
+
+.alias-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    flex:1;
+
+}
+.alias-chip{
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    background:var(--dark-crimson);
+
+    border:1px solid rgba(218,18,18,.4);
+
+    color:var(--silver-gray);
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size:.9rem;
+
+    transition:.3s ease;
+
+}
+
+.alias-chip:hover{
+
+    background:rgba(218,18,18,.45);
+
+    border-color:#ff6a6a;
+
+    color:white;
+
+    box-shadow:
+        0 0 10px rgba(218,18,18,.4);
+
+}
+
+.item-3{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.item-3 h2{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.stat{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:1px;
+    margin-bottom:15px;
+
+}
+
+
+
+
+.stat-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+
+/* Stat Name */
+
+.stat-header span:first-child{
+
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:1.4rem;
+    color:var(--soft-white);
+    font-weight:500;
+
+}
+
+
+/* Stat Value */
+
+.stat-header span:last-child{
+
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:1rem;
+    color:var(--silver-gray);
+    font-weight:bold;
+
+}
+
+
+.progress{
+
+    width:100%;
+    height:12px;
+    border-radius:20px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.progress-fill{
+    width:0;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        #7d0000 0%,
+        var(--dark-crimson) 40%,
+        var(--hero-crimson) 75%,
+        #ff6464 100%
+    );
+
+    box-shadow:
+        0 0 8px rgba(218,18,18,.35),
+        0 0 15px rgba(218,18,18,.20);
+    transition:width 1.3s ease;
+
+}
+
+.item-3:hover .progress{
+
+    border-color:rgba(255,120,120,.35);
+
+}
+
+.item-3:hover .progress-fill{
+
+    box-shadow:
+        0 0 12px rgba(218,18,18,.60),
+        0 0 22px rgba(218,18,18,.35);
+
+}
+
+
+
+.item:hover::before{
+
+    transform:translateX(120%);
+
+}
+
+.info{
+
+    transition:.25s ease;
+
+}
+
+.info:hover{
+
+    transform:translateX(5px);
+
+}
+
+.info:hover h4{
+
+    color:white;
+
+}
+
+.info:hover p{
+
+    color:white;
+
+}
+
+
+@keyframes fillBar{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:var(--progress);
+    }
+
+}
+
+.item-5{
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+}
+
+.item-5 .info{
+
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+
+}
+
+.item-5 .info h4{
+
+    width:120px;
+    flex-shrink:0;
+    margin:0;
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:1.35rem;
+    font-weight:500;
+    color:var(--soft-white);
+
+}
+
+.item-5 .info p{
+
+    flex:1;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:1rem;
+    color:var(--silver-gray);
+    line-height:1.4;
+
+}
+
+.item-6{
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+}
+
+.item-6 .info{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:14px;
+
+}
+
+.item-6 .info h4{
+    width:100px;
+    flex-shrink:0;
+    margin:0;
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:1.35rem;
+    font-weight:500;
+    color:var(--soft-white);
+}
+
+.item-6 .info p{
+
+    flex:1;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:1rem;
+    color:var(--silver-gray);
+    line-height:1.6;
+    overflow-wrap:anywhere;
+
+}
+
+.item-7{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    overflow-y:auto;
+
+}
+
+.item-7 .info{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:16px;
+
+}
+
+.item-7 .info h4{
+    flex:0 0 150px;
+    margin:0;
+    padding:0;
+    font-family:"Alumni Sans SC", sans-serif;
+    font-size:1.35rem;
+    font-weight:500;
+    color:var(--soft-white);
+
+}
+
+.item-7 .info p{
+    flex:1;
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:1rem;
+    font-weight:400;
+    color:var(--silver-gray);
+    line-height:1.6;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+
+}
+
+.item-7::-webkit-scrollbar{
+    width:7px;
+
+}
+
+.item-7::-webkit-scrollbar-track{
+    background:transparent;
+
+}
+
+.item-7::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        var(--dark-crimson),
+        var(--hero-crimson)
+    );
+
+    border-radius:20px;
+
+}
+
+.item-7::-webkit-scrollbar-thumb:hover{
+
+    background:#ff4040;
+
+}
+
+/* DC MAIN PAGE */
+
+.dc-hero-skyline.hero-skyline{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+    opacity:.7;
+    filter:blur(.5px);
+    z-index:-1;
+}
+
+.dc-body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background:var(--midnight-blue);
+}
+
+/* Search */
+
+.search.dc-search{
+    background:var(--dark-sapphire);
+}
+
+.dc-search input:-webkit-autofill{
+    -webkit-box-shadow:0 0 0 30px var(--dark-sapphire) inset !important;
+}
+
+.dc-title{
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:50pt;
+    font-weight:400;
+    color:var(--soft-white);
+    margin-left:50px;
+}
+
+
+.dc-theme .card-link{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    background:var(--dark-sapphire) !important;
+
+    border:1.5px solid var(--electric-blue) !important;
+
+    border-radius:3%;
+
+    box-shadow:
+        0 0 8px rgba(42,111,209,.30);
+
+    transition:.3s ease;
+
+}
+
+.dc-theme .card-list .card-item .card-link:hover{
+
+    transform:scale(1.01);
+
+    background:var(--deep-royal-blue) !important;
+
+    border-color:#66b3ff !important;
+
+    box-shadow:
+        0 0 12px rgba(42,111,209,.65),
+        0 0 25px rgba(42,111,209,.45),
+        0 0 45px rgba(42,111,209,.25),
+        0 12px 25px rgba(0,0,0,.45);
+
+}
+
+.dc-theme .card-image{
+
+    border-bottom:1.5px solid var(--electric-blue) !important;
+
+}
+
+.dc-theme .hero-name{
+
+    color:var(--soft-white);
+
+}
+
+.dc-theme .hero-real-name{
+
+    color:var(--silver-gray);
+
+}
+
+
+.dc-swiper-pagination .swiper-pagination-bullet{
+
+    background:var(--hero-blue);
+
+}
+
+.dc-swiper-pagination .swiper-pagination-bullet-active{
+
+    background:var(--electric-blue);
+
+    transform:scale(1.5);
+
+}
+
+.dc-swiper-button-prev,
+.dc-swiper-button-next{
+
+    color:var(--electric-blue);
+
+}
+
+.dc-swiper-button-prev:hover,
+.dc-swiper-button-next:hover{
+
+    color:#6cbcff;
+
+    text-shadow:
+        0 0 5px var(--electric-blue),
+        0 0 15px var(--electric-blue),
+        0 0 25px var(--electric-blue);
+
+}
+
+
+.button.view-button.dc-view{
+
+    font-family:"Alumni Sans SC",sans-serif;
+
+    font-size:15pt;
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 22px;
+
+    margin-top:15px;
+    margin-right:50px;
+
+    border-radius:25px;
+
+    background:rgba(42,111,209,.28);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    border:1.5px solid rgba(110,180,255,.55);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.12),
+        0 0 8px rgba(42,111,209,.18);
+
+    transition:.3s ease;
+
+}
+
+.button.view-button.dc-view:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(42,111,209,.42);
+
+    border-color:#7fc3ff;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.18),
+        0 0 12px rgba(42,111,209,.6),
+        0 0 25px rgba(42,111,209,.45),
+        0 0 45px rgba(42,111,209,.3);
+
+}
+
+/* DC HEROES WEB PAGE */
+.dc-body .hero-card{
+    width:200px;
+    background:var(--dark-sapphire);
+    border:1.5px solid var(--electric-blue);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:
+        0 0 8px rgba(42,111,209,.30);
+    transition:all .3s ease;
+}
+
+.dc-body .hero-card:hover{
+    transform:scale(1.02);
+    background:var(--deep-royal-blue);
+    border-color:#66b3ff;
+    box-shadow:
+        0 0 10px rgba(42,111,209,.65),
+        0 0 20px rgba(42,111,209,.50),
+        0 0 40px rgba(42,111,209,.35),
+        0 12px 25px rgba(0,0,0,.45);
+}
+
+.dc-body .hero-card .card-image{
+    border-bottom:1.5px solid var(--electric-blue);
+}
+
+.dc-body .hero-card .hero-name{
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:22pt;
+    color:var(--soft-white);
+}
+
+.dc-body .hero-card .hero-real-name{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10pt;
+    color:var(--silver-gray);
+}
+
+.dc-body .pagination-btn{
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:18pt;
+    color:white;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:25px;
+    background:rgba(42,111,209,.28);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1.5px solid rgba(110,180,255,.55);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.12),
+        0 0 8px rgba(42,111,209,.18);
+    transition:.3s ease;
+}
+
+.dc-body .pagination-btn:hover{
+    transform:translateY(-3px);
+    background:rgba(42,111,209,.42);
+    border-color:#7fc3ff;
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.18),
+        0 0 12px rgba(42,111,209,.60),
+        0 0 25px rgba(42,111,209,.45),
+        0 0 45px rgba(42,111,209,.30);
+}
+
+.dc-body .page-number{
+    width:44px;
+    height:44px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:18pt;
+    font-weight:500;
+    color:var(--soft-white);
+    background:var(--midnight-blue);
+    border:2px solid var(--electric-blue);
+    border-radius:12px;
+    transition:.25s ease;
+}
+
+.dc-body .page-number:hover{
+    background:rgba(42,111,209,.18);
+    border-color:#66b3ff;
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 12px rgba(42,111,209,.45);
+}
+
+.dc-body .page-number.active{
+    background:var(--electric-blue);
+    border-color:var(--electric-blue);
+    color:white;
+    box-shadow:
+        0 0 12px rgba(42,111,209,.65),
+        0 0 25px rgba(42,111,209,.35);
+}
+
+.dc-body .pagination-dots{
+    color:var(--electric-blue);
+    font-size:20pt;
+    font-weight:bold;
+}
+
+.dc-body .dc-title{
+    font-family:"Alumni Sans SC",sans-serif;
+    font-size:50pt;
+    font-weight:400;
+    color:var(--soft-white);
+
+}
+
+/* dc- character web page */
+
+.dc-body .item{
+    background:rgba(13,44,99,.28);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border:1.5px solid rgba(42,111,209,.45);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 18px rgba(42,111,209,.15);
+}
+
+.dc-body .item:hover{
+    transform:translateY(-4px);
+    background:rgba(13,44,99,.38);
+    border-color:var(--electric-blue);
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.45),
+        0 0 15px rgba(42,111,209,.45),
+        0 0 30px rgba(42,111,209,.25);
+}
+
+.dc-body .item-1 img{
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+.dc-body .item-1:hover img{
+    transform:scale(1.05);
+    filter:
+        brightness(1.05)
+        drop-shadow(0 0 18px rgba(42,111,209,.45));
+}
+
+.dc-body .item h2{
+    color:var(--soft-white);
+    border-bottom:1px solid rgba(42,111,209,.25);
+}
+
+.dc-body .item-4 h1{
+    color:var(--soft-white);
+}
+
+.dc-body .item-4 h3{
+    color:var(--silver-gray);
+}
+
+.dc-body .item-4:hover h1{
+    text-shadow:
+        0 0 10px rgba(42,111,209,.65),
+        0 0 20px rgba(42,111,209,.35);
+}
+
+.dc-body .info h4{
+    color:var(--soft-white);
+}
+
+.dc-body .info p{
+    color:var(--silver-gray);
+}
+
+.dc-body .alias-chip{
+    background:rgba(17,70,143,.30);
+    border:1px solid rgba(42,111,209,.45);
+    color:var(--soft-white);
+    transition:.3s ease;
+}
+
+.dc-body .alias-chip:hover{
+    background:rgba(42,111,209,.40);
+    border-color:#66b3ff;
+    box-shadow:
+        0 0 10px rgba(42,111,209,.40);
+}
+
+.dc-body .progress{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(42,111,209,.18);
+}
+
+.dc-body .progress-fill{
+    background:linear-gradient(
+        90deg,
+        #11468F 0%,
+        #2A6FD1 45%,
+        #58A6FF 100%
+    );
+    box-shadow:
+        0 0 8px rgba(42,111,209,.40),
+        0 0 15px rgba(42,111,209,.20);
+}
+
+.dc-body .item-3:hover .progress{
+    border-color:rgba(110,180,255,.35);
+}
+
+.dc-body .item-3:hover .progress-fill{
+    box-shadow:
+        0 0 12px rgba(42,111,209,.60),
+        0 0 22px rgba(42,111,209,.35);
+}
+
+.dc-body .item-7::-webkit-scrollbar-thumb{
+    background:var(--electric-blue);
+}
+
+.dc-body .item-7::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+/* Search .ejs */
+
+.search-results{
+
+    width:95%;
+    margin:40px auto 60px;
+
+}
+
+.search-title{
+
+    font-family:"Alumni Sans SC",sans-serif;
+    font-weight:500;
+    font-size:clamp(3rem,5vw,4.5rem);
+
+    color:var(--soft-white);
+
+    text-align:left;
+
+    margin:20px 0 50px;
+
+}
+
+.search-query{
+
+    color:var(--soft-white);
+
+}
+
+/* Grid */
+
+.search-results .hero-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    justify-items:center;
+
+    gap:35px;
+
+    width:95%;
+
+    margin:0 auto;
+
+}
+
+/* Card */
+
+.search-results .hero-card{
+
+    width:200px;
+
+}
+
+/* Button */
+
+.search-results .hero-card button{
+
+    width:100%;
+
+    margin:0;
+    padding:0;
+
+    border:none;
+    outline:none;
+    background:none;
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+/* Empty Search */
+
+.no-character-container{
+
+    min-height:60vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.no-character-text{
+
+    font-family:"Alumni Sans SC",sans-serif;
+
+    font-size:clamp(4rem,8vw,7rem);
+
+    font-weight:500;
+
+    color:var(--soft-white);
+
+    text-align:center;
+
+    letter-spacing:2px;
+
+    opacity:.9;
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .search-results .hero-grid{
+
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+        gap:25px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .search-title{
+
+        font-size:3rem;
+
+    }
+
+    .search-results .hero-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+search-results .hero-card.marvel-card{
+    background:var(--maroon);
+    border:1.5px solid var(--hero-crimson);
+    box-shadow:
+        0 0 8px rgba(255,0,0,.3);
+}
+
+.search-results .hero-card.marvel-card:hover{
+    background:#5a0000;
+    border-color:var(--hero-crimson);
+
+    box-shadow:
+        0 0 12px rgba(255,0,0,.6),
+        0 0 24px rgba(255,0,0,.45),
+        0 0 40px rgba(255,0,0,.25);
+}
+
+.search-results .hero-card.marvel-card .card-image{
+    border-bottom:1.5px solid var(--hero-crimson);
+}
+
+
+/* ===========================
+   SEARCH PAGE DC CARD
+=========================== */
+
+.search-results .hero-card.dc-card{
+    background:var(--dark-sapphire);
+    border:1.5px solid var(--electric-blue);
+
+    box-shadow:
+        0 0 8px rgba(42,111,209,.30);
+}
+
+.search-results .hero-card.dc-card:hover{
+
+    background:var(--deep-royal-blue);
+
+    border-color:#66b3ff;
+
+    box-shadow:
+        0 0 12px rgba(42,111,209,.65),
+        0 0 25px rgba(42,111,209,.45),
+        0 0 45px rgba(42,111,209,.25);
+
+}
+
+.search-results .hero-card.dc-card .card-image{
+
+    border-bottom:1.5px solid var(--electric-blue);
+
+}

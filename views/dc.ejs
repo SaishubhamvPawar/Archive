@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <!-- Swiper Link ExternalCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+<body class="dc-body">
+
+    <div class="navbar">
+            <div class="navbar-logo">
+                <a href="/">
+                    <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
+                </a>
+            </div>
+
+            <div class="navbar-options">
+
+                <a href="/marvel">
+                    <h2>MARVEL</h2>
+                </a>
+
+                <a href="/dc">
+                    <h2>DC</h2>
+                </a>
+
+                <form action="/search" method="post">
+                    <div class="search dc-search">
+                        <span class="search-icon dc-search-icon material-symbols-outlined">search</span>
+                        
+                        <input class="search-input dc-input" type="search" name="search-content" id="" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+
+    </div>
+
+    <img class="hero-skyline dc-hero-skyline"src="/images/dcSkyline.png" alt="DC City Skyline Image" >
+
+      <div class="dc-heroes">
+
+        <div class="heading-container">
+            <h2 class="dc-title">DC HEROES</h2>
+            <a href="/dc-heroes?page=1" class="button dc-view view-button">View More →</a>
+
+        </div>
+        <div class="card-container dc-theme">
+        <div class="card-wrapper swiper dc-card-wrapper">
+            <ul class="card-list swiper-wrapper">
+                <% for (let i=0;i<15;i++){ %>
+                <li class="card-item  swiper-slide dc-card-item">
+
+                    <form action="/dc-character" method="post" class="card-link dc-card-link">
+                        <input type="hidden" name="id" value="<%= heroes[i].id %>">
+                        <button  type="submit" style="border: none; background: none; padding: 0;">
+                                
+                                    <img src="<%= heroImg[i] %>" alt="Card Image" class="card-image">
+                                    <p class="hero-name"><%= heroes[i].name %></p>
+                                    <p class="hero-real-name"><%= heroes[i]["biography"]["full-name"] %></p>
+                                
+                        </button>
+                    </form>
+
+
+                    
+                    <!-- <a href="#" class="card-link">
+                        <img src="/images/spidermanImage.png" alt="Card Image" class="card-image">
+                        <p class="hero-name">SPIDER-MAN</p>
+                        <p class="hero-real-name">Peter Parker</p>
+                    </a> -->
+                </li>
+
+                <% } %>
+
+                
+
+            </ul>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination dc-swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev dc-swiper-button-prev"></div>
+            <div class="swiper-button-next dc-swiper-button-next"></div>
+        </div>
+        </div>
+    </div>
+
+    <div class="dc-villains">
+
+        <div class="heading-container">
+            <h2 class="dc-title">DC VILLAINS</h2>
+            <a href="/dc-villains?page=1" class="button dc-view view-button">View More →</a>
+
+        </div>
+        <div class="card-container dc-theme">
+        <div class="card-wrapper swiper dc-card-wrapper">
+            <ul class="card-list swiper-wrapper">
+                <% for (let i=0;i<15;i++){ %>
+                <li class="card-item  swiper-slide dc-card-item">
+
+                    <form action="/dc-character" method="post" class="card-link dc-card-link">
+                        <input type="hidden" name="id" value="<%= villains[i].id %>">
+                        <button  type="submit" style="border: none; background: none; padding: 0;">
+                                
+                                    <img src="<%= villainImg[i] %>" alt="Card Image" class="card-image">
+                                    <p class="hero-name"><%= villains[i].name %></p>
+                                    <p class="hero-real-name"><%= villains[i]["biography"]["full-name"] %></p>
+                                
+                        </button>
+                    </form>
+
+
+                    
+                    <!-- <a href="#" class="card-link">
+                        <img src="/images/spidermanImage.png" alt="Card Image" class="card-image">
+                        <p class="hero-name">SPIDER-MAN</p>
+                        <p class="hero-real-name">Peter Parker</p>
+                    </a> -->
+                </li>
+
+                <% } %>
+
+                
+
+            </ul>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination dc-swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev dc-swiper-button-prev"></div>
+            <div class="swiper-button-next dc-swiper-button-next"></div>
+        </div>
+        </div>
+    </div>
+
+     
+    
+    
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Swiper External JS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
