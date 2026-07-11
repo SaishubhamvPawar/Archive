@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //Handles the "/" GET request
 app.get("/" , (req,res) =>{
-    res.send("Hello from Express!");
+    res.render("index");
 });
 
 let mDefHeroes = [620,201,470,346,149,659,332,226,106,717,196,213,107,579,30];
