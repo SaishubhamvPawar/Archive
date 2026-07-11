@@ -98,8 +98,8 @@ async function loadMarvelVillains() {
     ); 
 
     
-    const responses = await Promise.allSettled(requests);
-    const responsesImg = await Promise.allSettled(requestsImg);
+    const responses = await Promise.allSettled(vilrequests);
+    const responsesImg = await Promise.allSettled(vilrequestsImg);
 
     marvelVillains = responses
         .filter(r => r.status === "fulfilled")
@@ -900,8 +900,8 @@ async function loadDCVillains() {
     ); 
 
     
-    const responses = await Promise.allSettled(requests);
-    const responsesImg = await Promise.allSettled(requestsImg);
+    const responses = await Promise.allSettled(vilrequests);
+    const responsesImg = await Promise.allSettled(vilrequestsImg);
 
     dcVillains = responses
         .filter(r => r.status === "fulfilled")
