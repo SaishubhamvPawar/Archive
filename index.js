@@ -1025,9 +1025,13 @@ app.post("/search", (req, res) => {
 
 });
 //Start server
-app.listen(port , ()=>{
-    console.log(`Server running on port ${port}`);
-});
+if (process.env.VERCEL !== "1") {
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}
+
+export default app;
 
 
 
