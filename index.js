@@ -63,18 +63,26 @@ async function loadMarvelHeroes() {
     ); 
 
     
-    const responses = await Promise.all(requests);
-    const responsesImg = await Promise.all(requestsImg);
-   
-    marvelHeroes = responses.map(response => response.data);
-    marvelHeroesImages = responsesImg.map(response => response.data.images.lg);
-   
+    const responses = await Promise.allSettled(requests);
+
+    marvelHeroes = responses
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data);
+
+    
+    const responsesImg = await Promise.allSettled(requestsImg);
+
+    marvelHeroesImages = responsesImg
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data.images.lg);
+    
+    
     console.log("Marvel heroes loaded successfully!");
 }
 
 
 // Fetch the hero data once when the server starts.
-loadMarvelHeroes().catch(console.error);;
+// loadMarvelHeroes().catch(console.error);;
 
 
 let marvelVillains = [];
@@ -90,40 +98,51 @@ async function loadMarvelVillains() {
     ); 
 
     
-    const vilresponses = await Promise.all(vilrequests);
-    const vilresponsesImg = await Promise.all(vilrequestsImg);
+    const responses = await Promise.allSettled(requests);
+    const responsesImg = await Promise.allSettled(requestsImg);
+
+    marvelVillains = responses
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data);
+
+    marvelVillainsImages = responsesImg
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data.images.lg);
+
+    console.log(`Marvel Villains Loaded: ${marvelVillains.length}`);
    
-    marvelVillains = vilresponses.map(response => response.data);
-    marvelVillainsImages = vilresponsesImg.map(response => response.data.images.lg);
-   
-    console.log("Marvel villains loaded successfully!");
+    
 }
 
 
 // Fetch the hero data once when the server starts.
-loadMarvelVillains().catch(console.error);;
+// loadMarvelVillains().catch(console.error);
 
 // Handles requests to the Marvel page.
 app.get("/marvel", async (req, res) => {
 
-    // Log whenever the route is accessed.
-    console.log("Marvel route hit");
+     try {
 
-    try {
+        if (marvelHeroes.length === 0) {
+            await loadMarvelHeroes();
+        }
 
-        // Render the Marvel page using the cached hero data.
-        // Since the data is already stored in memory,
-        // no additional API requests are required,
-        // resulting in much faster page loading.
-        
+        if (marvelVillains.length === 0) {
+            await loadMarvelVillains();
+        }
+
         res.render("marvel", {
-            heroes: marvelHeroes , heroImg: marvelHeroesImages , villains: marvelVillains , villainImg: marvelVillainsImages
+            heroes: marvelHeroes,
+            heroImg: marvelHeroesImages,
+            villains: marvelVillains,
+            villainImg: marvelVillainsImages
         });
 
-    } catch (error) {
+    } catch (err) {
 
-        // Handle any unexpected errors while rendering the page.
-        res.status(404).send(error.response?.data || error.message);
+        console.error(err);
+        res.status(500).send(err.message);
+
     }
 
 });
@@ -767,14 +786,18 @@ async function fetchAllChars(){
         );
 }
 
-fetchAllChars().catch(console.error);;
+// fetchAllChars().catch(console.error);
 
 
 
 
 // marvel-heroes.ejs request
-app.get("/marvel-heroes" , (req,res) =>{
+app.get("/marvel-heroes" , async (req,res) =>{
     try {
+
+        if (totalMarvelHeroes.length === 0) {
+        await fetchAllChars();
+}
 
        
 
@@ -800,8 +823,12 @@ app.get("/marvel-heroes" , (req,res) =>{
 });
 
 // marvel-villains.ejs request 
-app.get("/marvel-villains" , (req,res) =>{
+app.get("/marvel-villains" , async (req,res) =>{
     try {
+
+        if (totalMarvelVillains.length === 0) {
+            await fetchAllChars();
+        }
         
 
         const page = parseInt(req.query.page) || 1;
@@ -841,18 +868,23 @@ async function loadDCHeroes() {
     ); 
 
     
-    const responses = await Promise.all(requests);
-    const responsesImg = await Promise.all(requestsImg);
-   
-    dcHeroes = responses.map(response => response.data);
-    dcHeroesImages = responsesImg.map(response => response.data.images.lg);
-   
-    console.log("DC heroes loaded successfully!");
+    const responses = await Promise.allSettled(requests);
+    const responsesImg = await Promise.allSettled(requestsImg);
+
+    dcHeroes = responses
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data);
+
+    dcHeroesImages = responsesImg
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data.images.lg);
+
+    console.log(`DC Heroes Loaded: ${dcHeroes.length}`);
 }
 
 
 // Fetch the hero data once when the server starts.
-loadDCHeroes().catch(console.error);;
+// loadDCHeroes().catch(console.error);
 
 
 let dcVillains = [];
@@ -868,18 +900,23 @@ async function loadDCVillains() {
     ); 
 
     
-    const vilresponses = await Promise.all(vilrequests);
-    const vilresponsesImg = await Promise.all(vilrequestsImg);
-   
-    dcVillains = vilresponses.map(response => response.data);
-    dcVillainsImages = vilresponsesImg.map(response => response.data.images.lg);
-   
-    console.log("DC villains loaded successfully!");
+    const responses = await Promise.allSettled(requests);
+    const responsesImg = await Promise.allSettled(requestsImg);
+
+    dcVillains = responses
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data);
+
+    dcVillainsImages = responsesImg
+        .filter(r => r.status === "fulfilled")
+        .map(r => r.value.data.images.lg);
+
+    console.log(`DC Villains Loaded: ${dcVillains.length}`);
 }
 
 
 // Fetch the hero data once when the server starts.
-loadDCVillains().catch(console.error);;
+// loadDCVillains().catch(console.error);
 
 app.get("/dc" , (req,res)=>{
      // Log whenever the route is accessed.
@@ -887,26 +924,35 @@ app.get("/dc" , (req,res)=>{
 
     try {
 
-        // Render the Marvel page using the cached hero data.
-        // Since the data is already stored in memory,
-        // no additional API requests are required,
-        // resulting in much faster page loading.
-        
+        if (dcHeroes.length === 0) {
+            await loadDCHeroes();
+        }
+
+        if (dcVillains.length === 0) {
+            await loadDCVillains();
+        }
+
         res.render("dc", {
-            heroes: dcHeroes , heroImg: dcHeroesImages , villains: dcVillains , villainImg: dcVillainsImages
+            heroes: dcHeroes,
+            heroImg: dcHeroesImages,
+            villains: dcVillains,
+            villainImg: dcVillainsImages
         });
 
-    } catch (error) {
+    } catch (err) {
 
-        // Handle any unexpected errors while rendering the page.
-        res.status(404).send(error.response?.data || error.message);
+        console.error(err);
+        res.status(500).send(err.message);
+
     }
 });
 
 // marvel-heroes.ejs request
-app.get("/dc-heroes" , (req,res) =>{
+app.get("/dc-heroes" , async (req,res) =>{
     try {
-
+        if (totalDcHeroes.length === 0) {
+            await fetchAllChars();
+        }
        
 
         const page = parseInt(req.query.page) || 1;
@@ -932,9 +978,12 @@ app.get("/dc-heroes" , (req,res) =>{
 });
 
 // dc-villains.ejs request 
-app.get("/dc-villains" , (req,res) =>{
+app.get("/dc-villains" , async (req,res) =>{
     try {
         
+        if (totalDCVillains.length === 0) {
+            await fetchAllChars();
+        }
 
         const page = parseInt(req.query.page) || 1;
         
@@ -995,7 +1044,11 @@ app.post("/dc-character" , async (req,res) =>{
     
 });
 
-app.post("/search", (req, res) => {
+app.post("/search", async (req, res) => {
+
+    if (idList.length === 0) {
+        await fetchAllChars();
+    }
 
     const search = req.body["search-content"].trim().toLowerCase();
 
