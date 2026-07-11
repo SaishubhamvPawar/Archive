@@ -55,30 +55,33 @@
         <div class="card-container ">
         <div class="card-wrapper swiper">
             <ul class="card-list swiper-wrapper">
-                <% for (let i=0;i<15;i++){ %>
-                <li class="card-item  swiper-slide">
+                <% heroes.forEach((hero, i) => { %>
+
+                <% if(hero && heroImg[i]) { %>
+
+                <li class="card-item swiper-slide">
 
                     <form action="/marvel-character" method="post" class="card-link">
-                        <input type="hidden" name="id" value="<%= heroes[i].id %>">
-                        <button  type="submit" style="border: none; background: none; padding: 0;">
-                                
-                                    <img src="<%= heroImg[i] %>" alt="Card Image" class="card-image">
-                                    <p class="hero-name"><%= heroes[i].name %></p>
-                                    <p class="hero-real-name"><%= heroes[i]["biography"]["full-name"] %></p>
-                                
+
+                        <input type="hidden" name="id" value="<%= hero.id %>">
+
+                        <button type="submit" style="border:none;background:none;padding:0;">
+
+                            <img src="<%= heroImg[i] %>" class="card-image">
+
+                            <p class="hero-name"><%= hero.name %></p>
+
+                            <p class="hero-real-name"><%= hero.biography["full-name"] %></p>
+
                         </button>
+
                     </form>
 
-
-                    
-                    <!-- <a href="#" class="card-link">
-                        <img src="/images/spidermanImage.png" alt="Card Image" class="card-image">
-                        <p class="hero-name">SPIDER-MAN</p>
-                        <p class="hero-real-name">Peter Parker</p>
-                    </a> -->
                 </li>
 
                 <% } %>
+
+                <% }) %>
 
                 
 
@@ -104,30 +107,33 @@
         <div class="card-container ">
         <div class="card-wrapper swiper">
             <ul class="card-list swiper-wrapper">
-                <% for (let i = 0; i < heroes.length; i++) { %>
-                <li class="card-item  swiper-slide">
+                <% villains.forEach((villain, i) => { %>
+
+                <% if(villain && villainImg[i]) { %>
+
+                <li class="card-item swiper-slide">
 
                     <form action="/marvel-character" method="post" class="card-link">
-                        <input type="hidden" name="id" value="<%= villains[i].id %>">
-                        <button  type="submit" style="border: none; background: none; padding: 0;">
-                                
-                                    <img src="<%= villainImg[i] %>" alt="Card Image" class="card-image">
-                                    <p class="hero-name"><%= villains[i].name %></p>
-                                    <p class="hero-real-name"><%= villains[i]["biography"]["full-name"] %></p>
-                                
+
+                        <input type="hidden" name="id" value="<%= villain.id %>">
+
+                        <button type="submit" style="border:none;background:none;padding:0;">
+
+                            <img src="<%= villainImg[i] %>" class="card-image">
+
+                            <p class="hero-name"><%= villain.name %></p>
+
+                            <p class="hero-real-name"><%= villain.biography["full-name"] %></p>
+
                         </button>
+
                     </form>
 
-
-                    
-                    <!-- <a href="#" class="card-link">
-                        <img src="/images/spidermanImage.png" alt="Card Image" class="card-image">
-                        <p class="hero-name">SPIDER-MAN</p>
-                        <p class="hero-real-name">Peter Parker</p>
-                    </a> -->
                 </li>
 
                 <% } %>
+
+                <% }) %>
 
                 
 
