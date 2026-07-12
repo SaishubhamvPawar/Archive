@@ -17,34 +17,54 @@
     
         
         <div class="navbar">
+
             <div class="navbar-logo">
                 <a href="/">
                     <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
                 </a>
-                
             </div>
 
-            <div class="navbar-options">
+            <!-- Hamburger Button -->
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-                <a href="/marvel">
-                    <h2>MARVEL</h2>
-                </a>
+            <!-- Navigation Menu -->
+            <div class="nav-menu">
 
-                <a href="/dc">
-                    <h2>DC</h2>
-                </a>
+                <div class="navbar-options">
+
+                    <a href="/marvel">
+                        <h2>MARVEL</h2>
+                    </a>
+
+                    <a href="/dc">
+                        <h2>DC</h2>
+                    </a>
+
+                </div>
 
                 <form action="/search" method="post">
+
                     <div class="search">
-                        <span class="search-icon material-symbols-outlined">search</span>
-                        
-                        <input class="search-input" type="search" name="search-content" id="" placeholder="Search">
+
+                        <span class="search-icon material-symbols-outlined">
+                            search
+                        </span>
+
+                        <input
+                            class="search-input"
+                            type="search"
+                            name="search-content"
+                            placeholder="Search">
+
                     </div>
+
                 </form>
+
             </div>
-
-            
-
 
         </div>
     
