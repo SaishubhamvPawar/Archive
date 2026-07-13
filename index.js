@@ -955,7 +955,7 @@ app.get("/dc" , async (req,res)=>{
 // marvel-heroes.ejs request
 app.get("/dc-heroes" , async (req,res) =>{
     try {
-        if (totalDcHeroes.length === 0) {
+        if (totalDCHeroes.length === 0) {
             await fetchAllChars();
         }
        
@@ -1057,28 +1057,28 @@ app.post("/search", async (req, res) => {
 
     const search = req.body["search-content"].trim().toLowerCase();
 
-    const results = idList
+    // Only allow characters that belong to your Marvel or DC collections
+    const allowedCharacters = idList.filter(hero =>
+        marvelCharacterSet.has(hero.name) ||
+        dcCharacterSet.has(hero.name)
+    );
+    console.log("SEARCH ROUTE HIT");
+
+    const results = allowedCharacters
+    
         .filter(hero =>
             hero.name.toLowerCase().includes(search) ||
             hero.biography.fullName.toLowerCase().includes(search)
         )
         .map(hero => {
 
-            let theme = "dc-card";
-            let route = "/dc-character";
+            const theme = marvelCharacterSet.has(hero.name)
+                ? "marvel-card"
+                : "dc-card";
 
-            if (marvelCharacterSet.has(hero.name)) {
-
-                theme = "marvel-card";
-                route = "/marvel-character";
-
-            }
-            else if (dcCharacterSet.has(hero.name)) {
-
-                theme = "dc-card";
-                route = "/dc-character";
-
-            }
+            const route = marvelCharacterSet.has(hero.name)
+                ? "/marvel-character"
+                : "/dc-character";
 
             return {
                 ...hero,

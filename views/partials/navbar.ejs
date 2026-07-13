@@ -1,0 +1,49 @@
+<div class="navbar">
+
+    <div class="navbar-logo">
+        <a href="/">
+            <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
+        </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-menu">
+
+        <div class="navbar-options">
+
+            <a href="/marvel">
+                <h2>MARVEL</h2>
+            </a>
+
+            <a href="/dc">
+                <h2>DC</h2>
+            </a>
+
+        </div>
+
+        <form action="/search" method="post">
+
+            <div class="search <%= searchClass %>">
+
+                <span class="search-icon <%= searchIconClass %> material-symbols-outlined">
+                    search
+                </span>
+
+                <input
+                    class="search-input <%= inputClass %>"
+                    type="search"
+                    name="search-content"
+                    placeholder="Search">
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

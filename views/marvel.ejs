@@ -16,33 +16,11 @@
 </head>
 <body class="marvel-body">
 
-    <div class="navbar">
-            <div class="navbar-logo">
-                <a href="/">
-                    <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
-                </a>
-            </div>
-
-            <div class="navbar-options">
-
-                <a href="/marvel">
-                    <h2>MARVEL</h2>
-                </a>
-
-                <a href="/dc">
-                    <h2>DC</h2>
-                </a>
-
-                <form action="/search" method="post">
-                    <div class="search marvel-search">
-                        <span class="search-icon marvel-search-icon material-symbols-outlined">search</span>
-                        
-                        <input class="search-input marvel-input" type="search" name="search-content" id="" placeholder="Search">
-                    </div>
-                </form>
-            </div>
-
-    </div>
+    <%- include("partials/navbar", {
+            searchClass: "marvel-search",
+            searchIconClass: "marvel-search-icon",
+            inputClass: "marvel-input"
+        }) %>
 
      <img class="hero-skyline marvel-hero-skyline"src="/images/redCitySkyline.png" alt="Red City Skyline Image" >
     <div class="marvel-heroes">

@@ -16,57 +16,11 @@
 
     
         
-        <div class="navbar">
-
-            <div class="navbar-logo">
-                <a href="/">
-                    <img src="/images/logoName.png" alt="Archive Logo" class="logo-name">
-                </a>
-            </div>
-
-            <!-- Hamburger Button -->
-            <button class="menu-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- Navigation Menu -->
-            <div class="nav-menu">
-
-                <div class="navbar-options">
-
-                    <a href="/marvel">
-                        <h2>MARVEL</h2>
-                    </a>
-
-                    <a href="/dc">
-                        <h2>DC</h2>
-                    </a>
-
-                </div>
-
-                <form action="/search" method="post">
-
-                    <div class="search">
-
-                        <span class="search-icon material-symbols-outlined">
-                            search
-                        </span>
-
-                        <input
-                            class="search-input"
-                            type="search"
-                            name="search-content"
-                            placeholder="Search">
-
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
+        <%- include("partials/navbar", {
+            searchClass: "",
+            searchIconClass: "",
+            inputClass: ""
+        }) %>
     
 
     <img class="hero-skyline"src="/images/HeroSkyline.png" alt="Hero Skyline Image Blue" >
