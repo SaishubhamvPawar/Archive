@@ -1,54 +1,58 @@
 if (typeof Swiper !== "undefined") {
 
-    const swiper = new Swiper(".swiper", {
+    document.querySelectorAll(".swiper").forEach(swiperContainer => {
 
-    loop: true,
+        new Swiper(swiperContainer, {
 
-    slidesPerView: 5,
-    slidesPerGroup: 5,
+            loop: true,
 
-    spaceBetween: 20,
+            slidesPerView: 5,
+            slidesPerGroup: 5,
 
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
+            spaceBetween: 20,
 
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
+            navigation: {
+                nextEl: swiperContainer.querySelector(".swiper-button-next"),
+                prevEl: swiperContainer.querySelector(".swiper-button-prev"),
+            },
 
-    breakpoints: {
+            pagination: {
+                el: swiperContainer.querySelector(".swiper-pagination"),
+                clickable: true,
+            },
 
-        0:{
-            slidesPerView:1,
-            slidesPerGroup:1
-        },
+            breakpoints: {
 
-        576:{
-            slidesPerView:2,
-            slidesPerGroup:2
-        },
+                0: {
+                    slidesPerView: 1,
+                    slidesPerGroup: 1
+                },
 
-        768:{
-            slidesPerView:3,
-            slidesPerGroup:3
-        },
+                576: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2
+                },
 
-        992:{
-            slidesPerView:4,
-            slidesPerGroup:4
-        },
+                768: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3
+                },
 
-        1200:{
-            slidesPerView:5,
-            slidesPerGroup:5
-        }
+                992: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4
+                },
 
-    }
+                1200: {
+                    slidesPerView: 5,
+                    slidesPerGroup: 5
+                }
 
-});
+            }
+
+        });
+
+    });
 
 }
 

@@ -43,8 +43,8 @@ let mDefHeroes = [620,201,470,346,149,659,332,226,106,717,196,213,107,579,30];
 let mDefVillains = [299,391,222,655,443,414,225,687,141,479,162,680,550,35,232];
 let dDefHeroes = [70,644,720,265,306,298,38,156,491,546,432,194,643,224,367];
 let dDefVillains = [370, 405, 172, 528, 601, 93, 105, 95, 216, 538, 136, 204, 60, 242, 609];
-const api_key = process.env.API_KEY;
-const API_URL = process.env.API_URL
+// const api_key = process.env.API_KEY;
+// const API_URL = process.env.;
 const GITAPI_URL = process.env.GITAPI_URL;
 //Handles Marvel.ejs request and Axios get request
 
@@ -56,28 +56,18 @@ let marvelHeroesImages = [];
 async function loadMarvelHeroes() {
 
     const requests = mDefHeroes.map(id =>
-        axios.get(`${API_URL}${api_key}/${id}`)
-    ); 
-    const requestsImg = mDefHeroes.map(id =>
         axios.get(`${GITAPI_URL}/id/${id}.json`)
-    ); 
+    );
 
-    
     const responses = await Promise.allSettled(requests);
 
     marvelHeroes = responses
         .filter(r => r.status === "fulfilled")
         .map(r => r.value.data);
 
-    
-    const responsesImg = await Promise.allSettled(requestsImg);
+    marvelHeroesImages = marvelHeroes.map(hero => hero.images.lg);
 
-    marvelHeroesImages = responsesImg
-        .filter(r => r.status === "fulfilled")
-        .map(r => r.value.data.images.lg);
-    
-    
-    console.log("Marvel heroes loaded successfully!");
+    console.log(`Marvel Heroes Loaded: ${marvelHeroes.length}`);
 }
 
 
@@ -90,28 +80,19 @@ let marvelVillainsImages = [];
 // Function to fetch the default Marvel heroes when the server starts.
 async function loadMarvelVillains() {
 
-    const vilrequests = mDefVillains.map(id =>
-        axios.get(`${API_URL}${api_key}/${id}`)
-    ); 
-    const vilrequestsImg = mDefVillains.map(id =>
+    const requests = mDefVillains.map(id =>
         axios.get(`${GITAPI_URL}/id/${id}.json`)
-    ); 
+    );
 
-    
-    const responses = await Promise.allSettled(vilrequests);
-    const responsesImg = await Promise.allSettled(vilrequestsImg);
+    const responses = await Promise.allSettled(requests);
 
     marvelVillains = responses
         .filter(r => r.status === "fulfilled")
         .map(r => r.value.data);
 
-    marvelVillainsImages = responsesImg
-        .filter(r => r.status === "fulfilled")
-        .map(r => r.value.data.images.lg);
+    marvelVillainsImages = marvelVillains.map(villain => villain.images.lg);
 
     console.log(`Marvel Villains Loaded: ${marvelVillains.length}`);
-   
-    
 }
 
 
@@ -861,23 +842,16 @@ let dcHeroesImages = [];
 async function loadDCHeroes() {
 
     const requests = dDefHeroes.map(id =>
-        axios.get(`${API_URL}${api_key}/${id}`)
-    ); 
-    const requestsImg = dDefHeroes.map(id =>
         axios.get(`${GITAPI_URL}/id/${id}.json`)
-    ); 
+    );
 
-    
     const responses = await Promise.allSettled(requests);
-    const responsesImg = await Promise.allSettled(requestsImg);
 
     dcHeroes = responses
         .filter(r => r.status === "fulfilled")
         .map(r => r.value.data);
 
-    dcHeroesImages = responsesImg
-        .filter(r => r.status === "fulfilled")
-        .map(r => r.value.data.images.lg);
+    dcHeroesImages = dcHeroes.map(hero => hero.images.lg);
 
     console.log(`DC Heroes Loaded: ${dcHeroes.length}`);
 }
@@ -892,24 +866,17 @@ let dcVillainsImages = [];
 // Function to fetch the default Marvel heroes when the server starts.
 async function loadDCVillains() {
 
-    const vilrequests = dDefVillains.map(id =>
-        axios.get(`${API_URL}${api_key}/${id}`)
-    ); 
-    const vilrequestsImg = dDefVillains.map(id =>
+    const requests = dDefVillains.map(id =>
         axios.get(`${GITAPI_URL}/id/${id}.json`)
-    ); 
+    );
 
-    
-    const responses = await Promise.allSettled(vilrequests);
-    const responsesImg = await Promise.allSettled(vilrequestsImg);
+    const responses = await Promise.allSettled(requests);
 
     dcVillains = responses
         .filter(r => r.status === "fulfilled")
         .map(r => r.value.data);
 
-    dcVillainsImages = responsesImg
-        .filter(r => r.status === "fulfilled")
-        .map(r => r.value.data.images.lg);
+    dcVillainsImages = dcVillains.map(villain => villain.images.lg);
 
     console.log(`DC Villains Loaded: ${dcVillains.length}`);
 }
@@ -936,6 +903,8 @@ app.get("/dc" , async (req,res)=>{
     console.log("DC Hero Images:", dcHeroesImages.length);
     console.log("DC Villains:", dcVillains.length);
     console.log("DC Villain Images:", dcVillainsImages.length);
+
+        
 
         res.render("dc", {
             heroes: dcHeroes,
